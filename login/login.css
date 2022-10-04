@@ -8,3 +8,9 @@
     background-color: rgba(57, 146, 255, 0);
     font-size: 14px;
 }
+
+#entrar{
+    border: none;
+    background-color: rgba(92, 160, 62, 1);
+    color: white;
+}
