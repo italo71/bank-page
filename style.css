@@ -16,3 +16,13 @@ a {
 #propostas p{
     display: inline-block;
 }
+
+#botoes button{
+    height: 70px;
+    background-color: rgb(125, 181, 255);
+    color: white;
+    font-size: 15px;
+}
+#botoes{
+    margin-bottom: 15px;
+}
