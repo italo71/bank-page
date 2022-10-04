@@ -1,7 +1,12 @@
+*{
+    font-size: 15px;
+}
+
 ul li {
     list-style-type: none;
     padding-right: 14px;
     display: inline-block;
+    font-size: 15px;
 }
 
 a {
@@ -26,3 +31,4 @@ a {
 #botoes{
     margin-bottom: 15px;
 }
+
