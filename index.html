@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/css/main.css">
     <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/datatables.min.css">
     <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/bootstrap/css/bootstrap5Min.css">
+    <link rel="stylesheet" href="bower_components/chartist/dist/chartist.min.css">
     <link rel="stylesheet" href="style.css">
     <title>SIGA BANK</title>
 </head>
@@ -61,105 +62,47 @@
                         </div>
                     </div>
                 </header>
-                <div class="col-4" style="display: inline-block;">
-                    <div id="chart_div_1"></div>
+                <div class="row">
+                    <!-- graficos -->
                 </div>
-                <div class="col-8" style="display: inline-block;">
-                    <div id="chart_div_2"></div>
+                <div class="row" id="propostas">
+                    <div class="col-4">
+                        <p>Propostas Digitadas</p><span id="prop_digitadas">210</span><br>
+                        <p>Vendas</p> R$ <span id="valor_vendas">610.781,00</span>
+                    </div>
+                    <div class="col-4">
+                        <p>Propostas pagas</p><span id="prop_pagas">58</span><br>
+                        <p>Pagas</p>R$ <span id="Valor_pagas">322.178,00</span>
+                    </div>
+                    <div class="col-4">
+                        <p>Canceladas</p><span id="prop_canceladas">0</span><br>
+                        <p>Total</p>R$ <span id="Valor_cancelado">0</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-4">
+                        <button style="border: none;">Auxílio Brasil</button>
+                    </div>
+                    <div class="col-4">
+                        <button style="border: none;">FGTS</button>
+                    </div>
+                    <div class="col-4">
+                        <button style="border: none;">INSS</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-10"></div>
                 </div>
             </div>
         </div>
     </div>
-    <script>
-        window.onload = () => {
-            google.charts.load('current', { 'packages': ['bar'] });
-            google.charts.setOnLoadCallback(drawStuff_1);
-
-            function drawStuff_1() {
-                var data = new google.visualization.arrayToDataTable([
-                    ['Move', 'Percentage'],
-                    ["Janeiro", 44],
-                    ["Fevereiro", 31],
-                    ["Março", 12],
-                    ["Abril", 12],
-                    ["Maio", 12],
-                    ["Junho", 12],
-                    ["Julho", 12],
-                    ["Agosto", 12],
-                    ["Setembro", 12],
-                    ["Outubro", 12],
-                    ["Novembro", 12],
-                    ["Dezembro", 12],
-                ]);
-
-                
-                var options = {
-                    title: "GRÁFICO DE ATENDIMENTOS",
-                    width: 800,
-                    legend: { position: 'none' },
-                    axes: {
-                        x: {
-                            0: { side: 'botton'} // Top x-axis.
-                        }
-                    },
-                    bar: { groupWidth: "30%" }
-                };
-
-                var chart = new google.charts.Bar(document.getElementById('chart_div_1'));
-                // Convert the Classic options to Material options.
-                chart.draw(data, google.charts.Bar.convertOptions(options));
-            };
-            /* ------------------------------------------------------------------------------------------------------------------------ */
-
-            google.charts.load('current', { 'packages': ['bar'] });
-            google.charts.setOnLoadCallback(drawStuff_2);
-
-            function drawStuff_2() {
-                var data = new google.visualization.arrayToDataTable([
-                    ['Move', 'Percentage'],
-                    ["Janeiro", 44],
-                    ["Fevereiro", 31],
-                    ["Março", 12],
-                    ["Abril", 12],
-                    ["Maio", 12],
-                    ["Junho", 12],
-                    ["Julho", 12],
-                    ["Agosto", 12],
-                    ["Setembro", 12],
-                    ["Outubro", 12],
-                    ["Novembro", 12],
-                    ["Dezembro", 12],
-                ]);
-
-                var options = {
-                    width: 800,
-                    legend: { position: 'none' },
-                    axes: {
-                        x: {
-                            0: { side: 'top', label: 'Evolução Financeira' } // Top x-axis.
-                        }
-                    },
-                    bar: { groupWidth: "90%" }
-                };
-
-                var chart = new google.charts.Bar(document.getElementById('chart_div_2'));
-                // Convert the Classic options to Material options.
-                chart.draw(data, google.charts.Bar.convertOptions(options));
-            };
-        }
-    </script>
 
     <!-- Jquery Core Js -->
     <script src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/jquery/jquery.min.js"></script>
+
     <!-- Bootstrap Core Js -->
     <script src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/bootstrap/js/bootstrap.js"></script>
-
-    <!-- Fusioncharts Js -->
-    <script src="https://siga.arcoconsultoria.com/SIGA/FC/fusioncharts.js"></script>
-    <script src="https://siga.arcoconsultoria.com/SIGA/FC/fusioncharts.charts.js"></script>
-    <script src="https://siga.arcoconsultoria.com/SIGA/FC/themes/fusioncharts.theme.fint.js"></script>
-    <!-- google charts -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script type="text/javascript"
         src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/moment/moment.js"></script>
