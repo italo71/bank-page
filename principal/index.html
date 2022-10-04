@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet"
+        href="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/node-waves/waves.css">
+    <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/jquery-ui/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/css/style.min.css">
+    <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/css/main.css">
+    <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/datatables.min.css">
+    <link rel="stylesheet" href="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/bootstrap/css/bootstrap5Min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>SIGA BANK</title>
+</head>
+<!--  -->
+
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="card col-12">
+                <header style="height: 80px;">
+                    <div class="col-12">
+                        <div class="col-1" style="position: absolute; top: -36px;">
+                            <img src="./_img/siga bank_siga bank-06.png" alt="img" width="150px" height="150px">
+                        </div>
+                        <div class="col-4" style="position: absolute; top: 28px; left: 150px;">
+                            <ul>
+                                <li>
+                                    <a href="#">Inicio</a>
+                                </li>
+                                <li>
+                                    <a href="#">Vendas</a>
+                                </li>
+                                <li>
+                                    <a href="#">Colaboradores</a>
+                                </li>
+                                <li>
+                                    <a href="#">Financeiro</a>
+                                </li>
+                                <li>
+                                    <a href="#">Outros</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="display: inline-block; position: absolute; right: 15px; top: 10px;">
+                            <div>
+                                Olá <span id="usuario">Usuario</span>, bom dia.
+                            </div>
+                            <div style="position: absolute; right: 0px;">
+                                <button style="border: none; background-color: rgba(255, 255, 255, 0);"
+                                    id="btn-sair">Sair</button>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="row">
+                    <!-- graficos -->
+                    <div class="col-4">
+                        <canvas id="myChart" style="width: 20px;"></canvas>
+                    </div>
+                    <div class="col-5">
+                        <canvas id="myChart_2" style="width: 20px; height: 8px;"></canvas>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" id="propostas">
+                    <div class="col-4">
+                        <p>Propostas Digitadas <span id="prop_digitadas">210</span></p><br>
+                        <p>Vendas R$ <span id="valor_vendas">610.781,00</span></p>
+                    </div>
+                    <div class="col-4">
+                        <p>Propostas pagas <span id="prop_pagas">58</span></p><br>
+                        <p>Pagas R$ <span id="Valor_pagas">322.178,00</span></p>
+                    </div>
+                    <div class="col-4">
+                        <p>Canceladas <span id="prop_canceladas">0</span></p><br>
+                        <p>Total R$ <span id="Valor_cancelado">0</span></p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row" id="botoes">
+                    <div class="col-4">
+                        <button class="col-12" style="border: none;">Auxílio Brasil</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="col-12" style="border: none;">FGTS</button>
+                    </div>
+                    <div class="col-4">
+                        <button class="col-12" style="border: none;">INSS</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="justify-content-center">
+                            <h3>ÚLTIMOS ATENDIMENTOS</h3>
+                        </div>
+                        <div>
+                            <div class="table">
+                                <table>
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            const labels = [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+            ];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: '',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [1, 10, 5, 2, 20, 30, 45],
+                    backgroundColor: [/* cores dos graficos, uma cor para cada barra */
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                }]
+            };
+
+            const config = {
+                type: 'bar',
+                data: data,
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Gráfico de atendimentos'
+                        },
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            };
+
+            const data_2 = {
+                labels: labels,
+                datasets: [{
+                    label: '',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [1, 10, 5, 2, 20, 30, 45],
+                    backgroundColor: [/* cores dos graficos, uma cor para cada barra */
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                }]
+            }
+
+            const config_2 = {
+                type: 'line',
+                data: data_2,
+                options: {
+                    plugins: {
+                        title: {
+                            display: true,
+                            text: 'Evolução Financeira'
+                        },
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            };
+
+
+        </script>
+
+        <script>
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+
+            const myChart_2 = new Chart(
+                document.getElementById('myChart_2'),
+                config_2
+            );
+        </script>
+
+        <!-- Jquery Core Js -->
+        <script src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/jquery/jquery.min.js"></script>
+
+        <!-- Bootstrap Core Js -->
+        <script src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/bootstrap/js/bootstrap.js"></script>
+
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/moment/moment.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/datatables.min.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/dt-moment.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/Buttons-1.6.1/js/buttons.flash.min.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/jszip.min.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/pdfmake.min.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/vfs_fonts.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/Buttons-1.6.1/js/buttons.html5.min.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/Buttons-1.6.1/js/buttons.print.min.js"></script>
+        <script type="text/javascript"
+            src="https://siga.arcoconsultoria.com/SIGA/libsiga/js/mainNoConflict.js"></script>
+</body>
+
+</html>
