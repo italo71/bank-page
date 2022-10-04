@@ -61,56 +61,91 @@
                         </div>
                     </div>
                 </header>
-                <div class="col-4">
-                    <div id="chart_div"></div>
+                <div class="col-4" style="display: inline-block;">
+                    <div id="chart_div_1"></div>
+                </div>
+                <div class="col-8" style="display: inline-block;">
+                    <div id="chart_div_2"></div>
                 </div>
             </div>
         </div>
     </div>
     <script>
         window.onload = () => {
-            google.charts.load('current', { packages: ['corechart', 'bar'] });
-            google.charts.setOnLoadCallback(drawMultSeries);
+            google.charts.load('current', { 'packages': ['bar'] });
+            google.charts.setOnLoadCallback(drawStuff_1);
 
-            function drawMultSeries() {
-                var data = new google.visualization.DataTable();
-                data.addColumn('timeofday', 'Time of Day');
-                data.addColumn('number', 'Motivation Level');
-                data.addColumn('number', 'Energy Level');
+            function drawStuff_1() {
+                var data = new google.visualization.arrayToDataTable([
+                    ['Move', 'Percentage'],
+                    ["Janeiro", 44],
+                    ["Fevereiro", 31],
+                    ["Março", 12],
+                    ["Abril", 12],
+                    ["Maio", 12],
+                    ["Junho", 12],
+                    ["Julho", 12],
+                    ["Agosto", 12],
+                    ["Setembro", 12],
+                    ["Outubro", 12],
+                    ["Novembro", 12],
+                    ["Dezembro", 12],
+                ]);
 
-                data.addRows([
-                    [{ v: [8, 0, 0], f: '8 am' }, 1, .25],
-                    [{ v: [9, 0, 0], f: '9 am' }, 2, .5],
-                    [{ v: [10, 0, 0], f: '10 am' }, 3, 1],
-                    [{ v: [11, 0, 0], f: '11 am' }, 4, 2.25],
-                    [{ v: [12, 0, 0], f: '12 pm' }, 5, 2.25],
-                    [{ v: [13, 0, 0], f: '1 pm' }, 6, 3],
-                    [{ v: [14, 0, 0], f: '2 pm' }, 7, 4],
-                    [{ v: [15, 0, 0], f: '3 pm' }, 8, 5.25],
-                    [{ v: [16, 0, 0], f: '4 pm' }, 9, 7.5],
-                    [{ v: [17, 0, 0], f: '5 pm' }, 10, 10],
+                
+                var options = {
+                    title: "GRÁFICO DE ATENDIMENTOS",
+                    width: 800,
+                    legend: { position: 'none' },
+                    axes: {
+                        x: {
+                            0: { side: 'botton'} // Top x-axis.
+                        }
+                    },
+                    bar: { groupWidth: "30%" }
+                };
+
+                var chart = new google.charts.Bar(document.getElementById('chart_div_1'));
+                // Convert the Classic options to Material options.
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+            };
+            /* ------------------------------------------------------------------------------------------------------------------------ */
+
+            google.charts.load('current', { 'packages': ['bar'] });
+            google.charts.setOnLoadCallback(drawStuff_2);
+
+            function drawStuff_2() {
+                var data = new google.visualization.arrayToDataTable([
+                    ['Move', 'Percentage'],
+                    ["Janeiro", 44],
+                    ["Fevereiro", 31],
+                    ["Março", 12],
+                    ["Abril", 12],
+                    ["Maio", 12],
+                    ["Junho", 12],
+                    ["Julho", 12],
+                    ["Agosto", 12],
+                    ["Setembro", 12],
+                    ["Outubro", 12],
+                    ["Novembro", 12],
+                    ["Dezembro", 12],
                 ]);
 
                 var options = {
-                    title: 'Motivation and Energy Level Throughout the Day',
-                    hAxis: {
-                        title: 'Time of Day',
-                        format: 'h:mm a',
-                        viewWindow: {
-                            min: [7, 30, 0],
-                            max: [17, 30, 0]
+                    width: 800,
+                    legend: { position: 'none' },
+                    axes: {
+                        x: {
+                            0: { side: 'top', label: 'Evolução Financeira' } // Top x-axis.
                         }
                     },
-                    vAxis: {
-                        title: 'Rating (scale of 1-10)'
-                    }
+                    bar: { groupWidth: "90%" }
                 };
 
-                var chart = new google.visualization.ColumnChart(
-                    document.getElementById('chart_div'));
-
-                chart.draw(data, options);
-            }
+                var chart = new google.charts.Bar(document.getElementById('chart_div_2'));
+                // Convert the Classic options to Material options.
+                chart.draw(data, google.charts.Bar.convertOptions(options));
+            };
         }
     </script>
 
@@ -123,6 +158,8 @@
     <script src="https://siga.arcoconsultoria.com/SIGA/FC/fusioncharts.js"></script>
     <script src="https://siga.arcoconsultoria.com/SIGA/FC/fusioncharts.charts.js"></script>
     <script src="https://siga.arcoconsultoria.com/SIGA/FC/themes/fusioncharts.theme.fint.js"></script>
+    <!-- google charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
     <script type="text/javascript"
         src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/moment/moment.js"></script>
