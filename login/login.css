@@ -1,0 +1,9 @@
+#esqueceu:hover{
+    color: rgba(57, 146, 255, 0.8);
+
+}
+#esqueceu{
+    border: none;
+    background-color: rgba(57, 146, 255, 0);
+    font-size: 14px;
+}
