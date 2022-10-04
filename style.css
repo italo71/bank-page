@@ -9,6 +9,11 @@ ul li {
     font-size: 15px;
 }
 
+header{
+    background-color: rgba(107, 107, 107, 0.77);
+    color: white;
+}
+
 a {
     color: black;
     text-decoration: none;

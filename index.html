@@ -25,13 +25,12 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="card col-12">
-                <header>
+                <header style="height: 80px;">
                     <div class="col-12">
-                        <div class="col-1" style="display: inline-block;">
-                            <img src="https://adeliamendonca.vteximg.com.br/arquivos/ids/155580-1000-1000/img-produto-teste.jpg?v=636052012843370000"
-                                alt="" width="80px" height="80px">
+                        <div class="col-1" style="position: absolute; top: -36px;">
+                            <img src="./_img/siga bank_siga bank-06.png" alt="img" width="150px" height="150px">
                         </div>
-                        <div class="col-4" style="display: inline-block;">
+                        <div class="col-4" style="position: absolute; top: 28px; left: 150px;">
                             <ul>
                                 <li>
                                     <a href="#">Inicio</a>
@@ -54,7 +53,7 @@
                             <div>
                                 Olá <span id="usuario">Usuario</span>, bom dia.
                             </div>
-                            <div>
+                            <div style="position: absolute; right: 0px;">
                                 <button style="border: none; background-color: rgba(255, 255, 255, 0);"
                                     id="btn-sair">Sair</button>
                             </div>
@@ -66,8 +65,8 @@
                     <div class="col-4">
                         <canvas id="myChart" style="width: 20px;"></canvas>
                     </div>
-                    <div class="sol-4">
-                        <canvas id="myChart_2" style="width: 20px;"></canvas>
+                    <div class="col-5">
+                        <canvas id="myChart_2" style="width: 20px; height: 8px;"></canvas>
                     </div>
                 </div>
                 <hr>
@@ -132,9 +131,17 @@
                 labels: labels,
                 datasets: [{
                     label: '',
-                    backgroundColor: 'rgba(3, 255, 0, 0.8)',/* Cor da barra do grafico */
                     borderColor: 'rgb(255, 99, 132)',
                     data: [1, 10, 5, 2, 20, 30, 45],
+                    backgroundColor: [/* cores dos graficos, uma cor para cada barra */
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
                 }]
             };
 
@@ -153,9 +160,34 @@
             const data_2 = {
                 labels: labels,
                 datasets: [{
-                    label: ''
+                    label: '',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [1, 10, 5, 2, 20, 30, 45],
+                    backgroundColor: [/* cores dos graficos, uma cor para cada barra */
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
                 }]
             }
+
+            const config_2 = {
+                type: 'line',
+                data: data_2,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            };
+
+
         </script>
 
         <script>
@@ -164,10 +196,10 @@
                 config
             );
 
-            /*             const myChart_2 = new Chart(
-                            document.getElementById('myChart_2'),
-                            config
-                        ); */
+            const myChart_2 = new Chart(
+                document.getElementById('myChart_2'),
+                config_2
+            );
         </script>
 
         <!-- Jquery Core Js -->
