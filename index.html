@@ -20,6 +20,7 @@
     <title>SIGA BANK</title>
 </head>
 <!--  -->
+
 <body>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -33,19 +34,19 @@
                         <div class="col-4" style="display: inline-block;">
                             <ul>
                                 <li>
-                                    <a href="">Inicio</a>
+                                    <a href="#">Inicio</a>
                                 </li>
                                 <li>
-                                    <a href="">Vendas</a>
+                                    <a href="#">Vendas</a>
                                 </li>
                                 <li>
-                                    <a href="">Colaboradores</a>
+                                    <a href="#">Colaboradores</a>
                                 </li>
                                 <li>
-                                    <a href="">Financeiro</a>
+                                    <a href="#">Financeiro</a>
                                 </li>
                                 <li>
-                                    <a href="">Outros</a>
+                                    <a href="#">Outros</a>
                                 </li>
                             </ul>
                         </div>
@@ -60,10 +61,58 @@
                         </div>
                     </div>
                 </header>
+                <div class="col-4">
+                    <div id="chart_div"></div>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+        window.onload = () => {
+            google.charts.load('current', { packages: ['corechart', 'bar'] });
+            google.charts.setOnLoadCallback(drawMultSeries);
 
+            function drawMultSeries() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('timeofday', 'Time of Day');
+                data.addColumn('number', 'Motivation Level');
+                data.addColumn('number', 'Energy Level');
+
+                data.addRows([
+                    [{ v: [8, 0, 0], f: '8 am' }, 1, .25],
+                    [{ v: [9, 0, 0], f: '9 am' }, 2, .5],
+                    [{ v: [10, 0, 0], f: '10 am' }, 3, 1],
+                    [{ v: [11, 0, 0], f: '11 am' }, 4, 2.25],
+                    [{ v: [12, 0, 0], f: '12 pm' }, 5, 2.25],
+                    [{ v: [13, 0, 0], f: '1 pm' }, 6, 3],
+                    [{ v: [14, 0, 0], f: '2 pm' }, 7, 4],
+                    [{ v: [15, 0, 0], f: '3 pm' }, 8, 5.25],
+                    [{ v: [16, 0, 0], f: '4 pm' }, 9, 7.5],
+                    [{ v: [17, 0, 0], f: '5 pm' }, 10, 10],
+                ]);
+
+                var options = {
+                    title: 'Motivation and Energy Level Throughout the Day',
+                    hAxis: {
+                        title: 'Time of Day',
+                        format: 'h:mm a',
+                        viewWindow: {
+                            min: [7, 30, 0],
+                            max: [17, 30, 0]
+                        }
+                    },
+                    vAxis: {
+                        title: 'Rating (scale of 1-10)'
+                    }
+                };
+
+                var chart = new google.visualization.ColumnChart(
+                    document.getElementById('chart_div'));
+
+                chart.draw(data, options);
+            }
+        }
+    </script>
 
     <!-- Jquery Core Js -->
     <script src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/jquery/jquery.min.js"></script>
