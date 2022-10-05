@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="login.css">
     <title>SIGA BANK</title>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row justify-content-center">
@@ -28,17 +29,17 @@
                     </div>
                     <label class="m-l-25" for="">Usuario</label>
                     <div class="col-12 m-t-10 m-b-10 justify-content-center">
-                        <input type="text" id="usu_login">
+                        <input type="text" autocomplete="off" id="usu_login">
                     </div>
                     <label class="m-l-25" for="">Senha</label>
                     <div class="col-12 m-t-10 justify-content-center">
-                        <input type="text" id="senha_login">
+                        <input type="password" autocomplete="off" id="senha_login">
                     </div>
                     <div class="m-l-20 m-t-10" style="margin-top: 15px; display: inline-block;">
                         <button id="esqueceu">Esqueceu a senha?</button>
                     </div>
                     <div class="col-4 m-t-15 m-r-30" style="float: right;">
-                        <button class="btn" id="entrar">Entrar</button>
+                        <button class="btn" id="entrar" onclick="obterLogin()">Entrar</button>
                     </div>
                 </div>
             </div>
@@ -49,6 +50,16 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function obterLogin() {
+            let login = new Array;
+            login[0] = document.getElementById('usu_login').value;
+            login[1] = document.getElementById('senha_login').value;
+            return login;
+        }
+    </script>
+
     <!-- Jquery Core Js -->
     <script src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/jquery/jquery.min.js"></script>
 
@@ -77,4 +88,5 @@
         src="https://siga.arcoconsultoria.com/SIGA/libsiga/plugins/datatables/Buttons-1.6.1/js/buttons.print.min.js"></script>
     <script type="text/javascript" src="https://siga.arcoconsultoria.com/SIGA/libsiga/js/mainNoConflict.js"></script>
 </body>
+
 </html>
