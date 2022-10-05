@@ -1,15 +1,15 @@
-#esqueceu:hover{
+#esqueceu:hover {
     color: rgba(57, 146, 255, 0.8);
 
 }
 
-#esqueceu{
+#esqueceu {
     border: none;
     background-color: rgba(57, 146, 255, 0);
     font-size: 14px;
 }
 
-#entrar{
+#entrar {
     border: none;
     background-color: rgba(92, 160, 62, 1);
     color: white;
@@ -18,6 +18,43 @@
     height: 100%;
 }
 
-body{
+body {
     background-color: rgba(228, 228, 228, 0.418);
+}
+
+#card-login {
+ border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+    display: block;
+    height: 300px;
+    justify-content: center;
+}
+
+#card-logo {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    box-shadow: none;
+    background-color: rgba(48, 135, 149, 0.8);
+    border-left: none;
+}
+
+.row{
+    margin-top: 10%;
+}
+
+#usu_login {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 90%;
+}
+
+#senha_login {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    width: 90%;
+}
+
+#img-logo{;
 }

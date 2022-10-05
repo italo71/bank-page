@@ -23,35 +23,30 @@
 <body>
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="card col-6" style="box-shadow: none; position: absolute; top: 25%; display: block; height: 300px;">
-                <div class="col-5" style="position: absolute; top: 35px;">
-                    <div class="col-12" style="display: inline-block; margin-top: 25px; margin-left: 5px;">
-                        <div class="col-12 justify-content-center" style="margin-bottom: 20px;">
-                            <span style="color: rgba(96, 170, 64, 1);">LOGIN</span>
-                        </div>
-                        <div>
-                            <div class="col-12">
-                                <input type="text" placeholder="Usuario"
-                                    style="border: 1px solid lightgray; border-radius: 5px; width: 100%;">
-                            </div>
-                            <div class="col-12 m-t-15">
-                                <input type=" text" placeholder="Senha"
-                                    style="border: 1px solid lightgray; border-radius: 5px; width: 100%;">
-                            </div>
-                            <div style="margin-top: 15px; display: inline-block;">
-                                <button id="esqueceu">Esqueceu a senha?</button>
-                            </div>
-                            <div class="col-3 m-t-10" style="float: right;">
-                                <button class="btn" id="entrar">Entrar</button>
-                            </div>
-                        </div>
+            <div class="card col-4" id="card-login">
+                <div class="col-12" style="display: inline-block; margin-top: 5%;">
+                    <div class="col-12 justify-content-center" style="margin-bottom: 20px;">
+                        <span style="color: rgba(96, 170, 64, 1);">LOGIN</span>
+                    </div>
+                    <label class="m-l-25" for="">Usuario</label>
+                    <div class="col-12 m-t-10 m-b-10 justify-content-center">
+                        <input type="text" id="usu_login">
+                    </div>
+                    <label class="m-l-25" for="">Senha</label>
+                    <div class="col-12 m-t-10 justify-content-center">
+                        <input type="text" id="senha_login">
+                    </div>
+                    <div class="m-l-20 m-t-10" style="margin-top: 15px; display: inline-block;">
+                        <button id="esqueceu">Esqueceu a senha?</button>
+                    </div>
+                    <div class="col-4 m-t-15 m-r-30" style="float: right;">
+                        <button class="btn" id="entrar">Entrar</button>
                     </div>
                 </div>
-                <div class="col-5" style="display: inline-block; margin-top: -45px;">
-                    <div style="position: absolute; top: 8%; right: 10%;">
-                        <!-- img -->
-                        <img src="../_img/logo-sigabank.png" alt="" width="280px" height="280px">
-                    </div>
+            </div>
+            <div class="card col-3" id="card-logo">
+                <div class="col-12 justify-content-center">
+                    <img src="../_img/siga bank_siga bank-06.png" alt="" width="280px" height="280px" id="img-logo">
                 </div>
             </div>
         </div>
