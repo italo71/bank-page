@@ -10,7 +10,7 @@ ul li {
 }
 
 header{
-    background-color: rgba(93, 157, 179, 1);
+    background-color: rgba(45, 113, 112, 0.8);
     color: white;
     border-radius: 5px;
     margin-top: 5px;
@@ -31,7 +31,7 @@ a {
 
 #botoes button{
     height: 70px;
-    background-color: rgb(125, 181, 255);
+    background-color: rgba(45, 113, 112, 0.8);
     color: white;
     font-size: 15px;
     border: none;
