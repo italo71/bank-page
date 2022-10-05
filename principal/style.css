@@ -32,7 +32,9 @@ a {
     background-color: rgb(125, 181, 255);
     color: white;
     font-size: 15px;
+    border: none;
 }
+
 #botoes{
     margin-bottom: 15px;
 }
