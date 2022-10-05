@@ -116,16 +116,16 @@
                 </div>
             </div>
         </div>
-
+        <!-- Biblioteca dos graficos -->
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script>
-            const labels = [
-                'January',
-                'February',
-                'March',
-                'April',
-                'May',
-                'June',
+            const labels = [/* linha temporal do grafico */
+                'Janeiro',
+                'Fevereiro',
+                'Março',
+                'Abriu',
+                'Maio',
+                'Junho',
             ];
 
             const data = {
@@ -146,28 +146,28 @@
                 }]
             };
 
-            const config = {
+            const config = {/* setar a variavel config para montar o grafico */
                 type: 'bar',
                 data: data,
-                options: {
+                options: {/* opções adicionais do grafico */
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Gráfico de atendimentos'
+                            text: 'Gráfico de atendimentos'/* titulo do grafico */
                         },
-                        legend: {
+                        legend: {/* legenda do grafico, manter display false */
                             display: false
                         }
                     }
                 }
             };
 
-            const data_2 = {
+            const data_2 = {/* dados do grafico */
                 labels: labels,
                 datasets: [{
                     label: '',
                     borderColor: 'rgb(255, 99, 132)',
-                    data: [1, 10, 5, 2, 20, 30, 45],
+                    data: [1, 10, 5, 2, 20, 30, 45], /* dados do gráfico */
                     backgroundColor: [/* cores dos graficos, uma cor para cada barra */
                         'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
@@ -180,16 +180,16 @@
                 }]
             }
 
-            const config_2 = {
-                type: 'line',
+            const config_2 = {/* configurações do grafico */
+                type: 'line',/* tipo do grafico */
                 data: data_2,
                 options: {
                     plugins: {
                         title: {
                             display: true,
-                            text: 'Evolução Financeira'
+                            text: 'Evolução Financeira'/* titulo do grafico */
                         },
-                        legend: {
+                        legend: {/* legenda da tabela, manter display false */
                             display: false
                         }
                     }
@@ -200,12 +200,12 @@
         </script>
 
         <script>
-            const myChart = new Chart(
+            const myChart = new Chart(/* função responsável por montar o grafico */
                 document.getElementById('myChart'),
                 config
             );
 
-            const myChart_2 = new Chart(
+            const myChart_2 = new Chart(/* função responsável por montar o grafico */
                 document.getElementById('myChart_2'),
                 config_2
             );
